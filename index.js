@@ -62,6 +62,9 @@ export default {
             init.body = await request.text();
         }
 
-        return fetch(`https://${path[1]}.roblox.com/${path.slice(2).join("/")}${url.search}`, init);
+        const response = await fetch(`https://${path[1]}.roblox.com/${path.slice(2).join("/")}${url.search}`, init);
+        return response
+        
+       // return fetch(`https://${path[1]}.roblox.com/${path.slice(2).join("/")}${url.search}`, init);
     }
 };
