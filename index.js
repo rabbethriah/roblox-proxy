@@ -63,7 +63,9 @@ export default {
         }
 
         const response = await fetch(`https://${path[1]}.roblox.com/${path.slice(2).join("/")}${url.search}`, init);
-        return response
+        console.log(response);
+        
+        return response;
         
        // return fetch(`https://${path[1]}.roblox.com/${path.slice(2).join("/")}${url.search}`, init);
     }
