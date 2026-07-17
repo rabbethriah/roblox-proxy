@@ -36,7 +36,7 @@ const domains = [
 
 // Export our request handler
 export default {
-    async fetch(request) {
+    async fetch(request, env) {
         const url = new URL(request.url);
         const path = url.pathname.split(/\//);
 
@@ -53,6 +53,10 @@ export default {
         headers.set("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36");
         // headers["user-agent"] = "Mozilla/5.0 (Windows NT 10.0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36";
 
+        if (env.RabbethriahBot_ROBLOXSECURITY) {
+            headers.set("Cookie", `.ROBLOSECURITY=${env.RabbethriahBot_ROBLOXSECURITY}`);
+        }
+        
         const init = {
             method: request.method,
             headers,
